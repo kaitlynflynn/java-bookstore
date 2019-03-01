@@ -11,7 +11,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-// http://localhost:2019/swagger-ui.html
+// http://localhost:2025/swagger-ui.html
 
 @Configuration
 @EnableSwagger2
@@ -29,7 +29,7 @@ public class Swagger2Config
 
     private ApiInfo apiEndPointsInfo()
     {
-        return new ApiInfoBuilder().title("Bookstore")
+        return new ApiInfoBuilder().title("Authors, Books, and Sections")
                 .description("Bookstore")
                 .contact(new Contact("Kaitlyn Flynn", "http://www.lambdaschool.com", "john@lambdaschool.com"))
                 .license("MIT")
