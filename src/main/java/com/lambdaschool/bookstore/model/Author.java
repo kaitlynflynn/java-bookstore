@@ -17,7 +17,10 @@ public class Author
     private String fname;
     private String lname;
 
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany
+    @JoinTable(name = "authorbooks",
+    joinColumns = {@JoinColumn(name="authorid")},
+    inverseJoinColumns = {@JoinColumn(name="bookid")})
     @JsonIgnoreProperties("authors")
     private Set<Book> books = new HashSet<>();
 

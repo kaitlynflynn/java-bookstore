@@ -1,5 +1,7 @@
 package com.lambdaschool.bookstore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,12 +14,44 @@ public class Section
     private long section;
     private String name;
 
-    //TODO Setup ManyToOne with Book
+    @ManyToOne
+    @JoinColumn(name = "bookid")
+    @JsonIgnore
+    private Book book;
 
     public Section()
     {
         // default constructor
     }
 
-    //TODO Setup Getters/Setters
+    // getters & setters -----------------------------------------------
+    public long getSection()
+    {
+        return section;
+    }
+
+    public void setSection(long section)
+    {
+        this.section = section;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public Book getBook()
+    {
+        return book;
+    }
+
+    public void setBook(Book book)
+    {
+        this.book = book;
+    }
 }
