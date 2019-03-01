@@ -1,7 +1,5 @@
 package com.lambdaschool.bookstore.model;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +21,7 @@ public class Book
     private Set<Section> sections = new HashSet<>();
 
     @ManyToMany(mappedBy = "books")
-    @JsonIgnoreProperties("books")
+//    @JsonIgnoreProperties("books")
     private Set<Author> authors = new HashSet<>();
 
     public Book()

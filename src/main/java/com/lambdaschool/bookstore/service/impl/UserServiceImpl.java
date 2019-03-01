@@ -18,11 +18,11 @@ public class UserServiceImpl implements UserDetailsService, UserService
 {
 
     @Autowired
-    private UserRepository userrepo;
+    private UserRepository userRepo;
 
-    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
-        User user = userrepo.findByUsername(userId);
+        User user = userRepo.findByUsername(username);
         if (user == null)
         {
             throw new UsernameNotFoundException("Invalid username or password.");
@@ -33,19 +33,19 @@ public class UserServiceImpl implements UserDetailsService, UserService
     public List<User> findAll()
     {
         List<User> list = new ArrayList<>();
-        userrepo.findAll().iterator().forEachRemaining(list::add);
+        userRepo.findAll().iterator().forEachRemaining(list::add);
         return list;
     }
 
     @Override
     public void delete(long id)
     {
-        userrepo.deleteById(id);
+        userRepo.deleteById(id);
     }
 
     @Override
     public User save(User user)
     {
-        return userrepo.save(user);
+        return userRepo.save(user);
     }
 }
